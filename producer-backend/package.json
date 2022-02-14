@@ -18,6 +18,7 @@
     "@instana/collector": "^1.138.0",
     "chance": "^1.1.7",
     "dotenv": "^10.0.0",
+    "express": "^4.17.2",
     "kafkajs": "^1.15.0",
     "kube-service-bindings": "^0.0.5"
   },

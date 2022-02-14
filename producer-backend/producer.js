@@ -1,7 +1,10 @@
+require('@instana/collector')();
+const express = require('express');
+const app = express();
+const port = 3000;
 const { Kafka } = require('kafkajs');
 const path = require('path');
 require('dotenv').config({ path: path.join(__dirname, '../.env') });
-require('@instana/collector')();
 const Chance = require('chance');
 const serviceBindings = require('kube-service-bindings');
 
@@ -51,5 +54,13 @@ const run = async () => {
   await producer.connect();
   setInterval(createMessage, 1000);
 };
+
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
+
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`)
+})
 
 run().catch(console.error);
