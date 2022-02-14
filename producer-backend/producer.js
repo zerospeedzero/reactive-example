@@ -1,6 +1,7 @@
 const { Kafka } = require('kafkajs');
 const path = require('path');
 require('dotenv').config({ path: path.join(__dirname, '../.env') });
+require('@instana/collector')();
 const Chance = require('chance');
 const serviceBindings = require('kube-service-bindings');
 
