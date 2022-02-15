@@ -52,15 +52,17 @@ const createMessage = async () => {
 
 const run = async () => {
   await producer.connect();
-  setInterval(createMessage, 1000);
+  /* setInterval(createMessage, 1000); */
+  createMessage()
 };
 
 app.get('/', (req, res) => {
   res.send('Hello World!')
+  run().catch(console.error);
 })
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
 
-run().catch(console.error);
+/*run().catch(console.error);*/
